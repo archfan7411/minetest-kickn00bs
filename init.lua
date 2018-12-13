@@ -1,5 +1,5 @@
-minetest.register_on_joinplayer(function(player)
-	if string.match(player:get_player_name(), "%D+%d%d%d") ~= nil then
-   	   minetest.kick_player(player:get_player_name(), "Please use the official Minetest client.")
-	   end
+minetest.register_on_prejoinplayer(function(name, ip)
+        if string.match(name, "[A-Z]%D+%d%d%d") ~= nil then
+           return "Please use the official Minetest client."
+           end
 end)
